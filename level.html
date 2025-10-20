@@ -14,15 +14,15 @@
         <span class="sub">Big Brother.exe</span>
       </header>
 
-      <div class="console">
-        <div id="console">
-          <div class="line">> Loading Chill.exe...</div>
-          <div class="line">> Playing lo-fi beats to celebrate Level 21 🎶</div>
-          <div class="line">
-            > Reminder: You’ve always been the calm to my chaos 💙
-          </div>
-          <a href="index.html" class="btn secondary">↩ Return to Console</a>
+      <div class="console" id="console">
+        <div class="line">> Loading Birthday.exe...</div>
+        <div class="line">
+          > Playing Happy Birthday beats to celebrate Level 21 🎶
         </div>
+        <audio id="bg-music" src="birthday.mp3" loop></audio>
+        <button id="music-toggle" class="btn secondary">▶ Play Song</button>
+
+        <a href="index.html" class="btn secondary">↩ Return to Console</a>
       </div>
 
       <footer>
@@ -30,27 +30,30 @@
         <span>© 2025</span>
       </footer>
     </div>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Run Chill.exe</title>
-        <link rel="stylesheet" href="style.css" />
-      </head>
-      <body>
-        <div class="console-container">
-          <div id="console">
-            <div class="line">> Loading Chill.exe...</div>
-            <div class="line">
-              > Playing Happy Birthday beats to celebrate Level 21 🎶
-            </div>
-            <audio id="bg-music" src="birthday.mp3" autoplay loop></audio>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const music = document.getElementById('bg-music');
+        if (!music) return; // Stop if this page has no music
 
-            <a href="index.html" class="btn secondary">↩ Return to Console</a>
-          </div>
-        </div>
-      </body>
-    </html>
+        const toggleBtn = document.getElementById('music-toggle');
+
+        music.pause(); // ensure it’s paused by default
+        music.volume = 0.5;
+
+        toggleBtn.addEventListener('click', () => {
+          if (music.paused) {
+            music.play();
+            toggleBtn.textContent = '⏸ Pause Music';
+          } else {
+            music.pause();
+            toggleBtn.textContent = '▶ Play Music';
+          }
+        });
+
+        window.addEventListener('beforeunload', () => {
+          music.pause();
+        });
+      });
+    </script>
   </body>
 </html>
