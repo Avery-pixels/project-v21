@@ -177,3 +177,9 @@ footer {
   display: block;
   margin-bottom: 12px;
 }
+
+audio {
+  display: block;
+  margin: 20px auto;
+  outline: none;
+}
