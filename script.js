@@ -89,8 +89,3 @@ function choosePath(path) {
     window.location.href = 'level.html';
   }
 }
-
-const music = document.getElementById('bg-music');
-music.volume = 0.5; // set volume (0 to 1)
-music.play(); // play music
-music.pause(); // pause music
